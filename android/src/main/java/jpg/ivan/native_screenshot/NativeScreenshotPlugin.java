@@ -150,13 +150,15 @@ public class NativeScreenshotPlugin implements MethodCallHandler, FlutterPlugin,
 		} // if not implemented
 
 
+		this.inPath = call.argument("fileName");;
+
 		// Need to fix takeScreenshot()
 		// it produces just a black image
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			// takeScreenshot();
-			takeScreenshotOld("No File Path");
+			takeScreenshotOld(this.inPath);
 		} else {
-			takeScreenshotOld("No File Path");
+			takeScreenshotOld(this.inPath);
 		} // if
 
 		if( this.ssError || this.ssPath == null || this.ssPath.isEmpty() ) {

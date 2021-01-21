@@ -17,4 +17,9 @@ class NativeScreenshot {
 
     return path;
   } // takeScreenshot()
+  static Future<String> takeScreenshotold(String pathName) async {
+    final String path = await _channel.invokeMethod('takeScreenshotOld', {'pathName': pathName});
+
+    return path;
+  } // takeScreenshotold()
 } // NativeScreenshot
