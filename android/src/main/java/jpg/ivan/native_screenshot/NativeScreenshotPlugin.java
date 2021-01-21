@@ -49,8 +49,7 @@ public class NativeScreenshotPlugin implements MethodCallHandler, FlutterPlugin,
 	private String inPath;
 
 	// Default constructor for old registrar
-	public NativeScreenshotPlugin(String path) {
-		this.inPath = path;
+	public NativeScreenshotPlugin() {
 	} // NativeScreenshotPlugin()
 
 	// Condensed logic to initialize the plugin
@@ -257,8 +256,16 @@ public class NativeScreenshotPlugin implements MethodCallHandler, FlutterPlugin,
 		}
 	} // reloadMedia()
 
-	private void takeScreenshot() {
+	private void takeScreenshot(String pathName) {
 		Log.println(Log.INFO, TAG, "Trying to take screenshot [new way]");
+
+		if(pathName != null){
+			this.inPath = pathName;
+		}
+		else {
+			Log.println(Log.INFO, TAG, "No Path provided");
+			return;
+		}
 
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
 			this.ssPath = null;
@@ -320,7 +327,7 @@ public class NativeScreenshotPlugin implements MethodCallHandler, FlutterPlugin,
 		}
 	} // takeScreenshot()
 
-	private void takeScreenshotOld() {
+	private void takeScreenshotOld(String pathName) {
 		Log.println(Log.INFO, TAG, "Trying to take screenshot [old way]");
 
 		try {
