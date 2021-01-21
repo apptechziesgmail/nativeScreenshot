@@ -141,6 +141,7 @@ public class NativeScreenshotPlugin implements MethodCallHandler, FlutterPlugin,
 			return;
 		} // if cannot write
 
+		/*
 		if( !call.method.equals("takeScreenshot") ) {
 			Log.println(Log.INFO, TAG, "Method not implemented!");
 
@@ -148,7 +149,7 @@ public class NativeScreenshotPlugin implements MethodCallHandler, FlutterPlugin,
 
 			return;
 		} // if not implemented
-
+		*/
 
 		this.inPath = call.argument("fileName");;
 
