@@ -151,7 +151,8 @@ public class NativeScreenshotPlugin implements MethodCallHandler, FlutterPlugin,
 		} // if not implemented
 		*/
 
-		this.inPath = call.argument("fileName");;
+		this.inPath = call.argument("pathName");
+		Log.println(Log.INFO, TAG, this.inPath);
 
 		// Need to fix takeScreenshot()
 		// it produces just a black image
