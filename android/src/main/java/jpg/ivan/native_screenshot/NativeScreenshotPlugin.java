@@ -154,9 +154,9 @@ public class NativeScreenshotPlugin implements MethodCallHandler, FlutterPlugin,
 		// it produces just a black image
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			// takeScreenshot();
-			takeScreenshotOld('\0');
+			takeScreenshotOld("No File Path");
 		} else {
-			takeScreenshotOld('\0');
+			takeScreenshotOld("No File Path");
 		} // if
 
 		if( this.ssError || this.ssPath == null || this.ssPath.isEmpty() ) {
