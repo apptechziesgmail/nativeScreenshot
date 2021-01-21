@@ -154,9 +154,9 @@ public class NativeScreenshotPlugin implements MethodCallHandler, FlutterPlugin,
 		// it produces just a black image
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			// takeScreenshot();
-			takeScreenshotOld();
+			takeScreenshotOld('');
 		} else {
-			takeScreenshotOld();
+			takeScreenshotOld('');
 		} // if
 
 		if( this.ssError || this.ssPath == null || this.ssPath.isEmpty() ) {
@@ -329,6 +329,13 @@ public class NativeScreenshotPlugin implements MethodCallHandler, FlutterPlugin,
 
 	private void takeScreenshotOld(String pathName) {
 		Log.println(Log.INFO, TAG, "Trying to take screenshot [old way]");
+		if(pathName != null){
+                        this.inPath = pathName;
+                }
+                else {
+                        Log.println(Log.INFO, TAG, "No Path provided");
+                        return;
+                }
 
 		try {
 			View view = this.activity.getWindow().getDecorView().getRootView();
